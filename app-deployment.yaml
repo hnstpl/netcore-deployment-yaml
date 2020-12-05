@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  myhns-portal
+  labels:
+    app:  myhns-portal
+spec:
+  selector:
+    matchLabels:
+      app: myhns-portal
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  myhns-portal
+    spec:
+      containers:
+      - name:  myhns-portal
+        image:  asia.gcr.io/digisense-293411/myhns
+        ports:
+        - containerPort:  80
+      restartPolicy: Always
